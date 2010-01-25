@@ -4,6 +4,8 @@ from models import Link
 
 
 class LinkAdmin(admin.ModelAdmin):
-    ordering = ('id',)
+    list_display = ('slug', 'url', 'visited')
+    list_display_links = ('slug', 'url')
+    ordering = ('slug',)
 admin.site.register(Link, LinkAdmin)
 
