@@ -1,14 +1,37 @@
 /*
-Design by Free CSS Templates
-http://www.freecsstemplates.org
+Based on a Design by Free CSS Templates
 Released for free under a Creative Commons Attribution 2.5 License
 */
+
+@font-face {
+    font-family: 'GentiumBookBasicRegular';
+    src: url('../font/GenBkBasR.eot');
+    src: local('Gentium Book Basic Regular'), local('GentiumBookBasic'), url('../font/GenBkBasR.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GentiumBookBasicItalic';
+    src: url('../font/GenBkBasI.eot');
+    src: local('Gentium Book Basic Italic'), local('GentiumBookBasic-Italic'), url('../font/GenBkBasI.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GentiumBookBasicBold';
+    src: url('../font/GenBkBasB.eot');
+    src: local('Gentium Book Basic Bold'), local('GentiumBookBasic-Bold'), url('../font/GenBkBasB.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GentiumBookBasicBoldItalic';
+    src: url('../font/GenBkBasBI.eot');
+    src: local('Gentium Book Basic Bold Italic'), local('GentiumBookBasic-BoldItalic'), url('../font/GenBkBasBI.ttf') format('truetype');
+}
 
 body {
 	margin: 0;
 	padding: 0;
 	background: #F8F5EC;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: GentiumBookBasicRegular, Georgia, "Times New Roman", serif;
 	font-size: 12px;
 	color: #A19D9A;
 }
@@ -56,7 +79,7 @@ a:hover {
 /* Header */
 
 #header-wrapper {
-	height: 100px;
+	height: 60px;
 	background: #3C3230;
 	border-bottom: 10px solid #4F4440;
 }
@@ -75,24 +98,13 @@ a:hover {
 	color: #000000;
 }
 
-#logo h1, #logo p {
-	margin: 0;
-	padding: 0;
-}
-
 #logo h1 {
+	margin: 0;
+	padding: 10px 0;
 	letter-spacing: -1px;
 	text-transform: lowercase;
 	font-size: 3.8em;
 }
-
-#logo p {
-	margin: 0;
-	padding: 0px 0 0 2px;
-	font: normal 14px Georgia, "Times New Roman", Times, serif;
-	font-style: italic;
-	color: #FFFFFF;
-} 
 
 #logo a {
 	border: none;
@@ -128,7 +140,7 @@ a:hover {
 	border: 1px solid #DEDEDE;
 	background: #FFFFFF;
 	text-transform: lowercase;
-	font: normal 11px Arial, Helvetica, sans-serif;
+	font-size: 11px;
 	color: #5D781D;
 }
 
@@ -168,7 +180,6 @@ a:hover {
 	padding: 9px 0px 0px 0px;
 	text-decoration: none;
 	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	font-weight: bold;
 	color: #FFFFFF;
@@ -189,6 +200,7 @@ a:hover {
 	width: 980px;
 	margin: 0 auto;
 	padding: 0px 0px 0px 0px;
+    font-size: 14px;
 }
 
 #page-bgtop {
@@ -222,7 +234,6 @@ a:hover {
 	margin-bottom: 30px;
 	padding: 0px 30px 0px 30px;
 	text-align: left;
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	font-weight: bold;
 	font-style: italic;
@@ -339,20 +350,19 @@ a:hover {
 /* Footer */
 
 #footer {
-	height: 50px;
+	height: 38px;
 	margin: 0 auto;
 	padding: 0px 0 15px 0;
 	background: #F1EDE4;
 	border-top: 1px solid #EBE8DF;
-	font-family: Arial, Helvetica, sans-serif;
 }
 
 #footer p {
 	margin: 0;
 	padding-top: 20px;
 	line-height: normal;
-	font-size: 9px;
-	text-transform: uppercase;
+	font-size: 12px;
+	text-transform: small-caps;
 	text-align: center;
 	color: #A0A0A0;
 }

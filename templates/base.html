@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Millimeter URL Shortener{% endblock %}</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" type="image/png" href="{{ MEDIA_URL}}img/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL}}css/style.css" />
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+<div id="wrapper">
+    <div id="header-wrapper">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="{% url index %}">millimeter</a></h1>
+        </div>
+    </div>
+</div><!--/#header-->
+
+<div id="page">
+<div id="page-bgtop">
+<div id="page-bgbtm">
+    <div id="content">
+        {% block content %}{% endblock %}
+        <div style="clear: both;">&nbsp;</div>
+    </div>
+
+    <div id="sidebar">
+        {% block sidebar %}{% endblock %}
+    </div>
+
+    <div style="clear: both;">&nbsp;</div>
+
+    </div><!--/#page-bgbtm-->
+    </div><!--/#page-bgtop-->
+    </div><!--/#page -->
+
+</div><!--/#wrapper-->
+
+<div id="footer">
+    <p>Copyright (c) {% now "Y" %} {{ site_title }}. Based on design work by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+</div><!--/#footer -->
+
+</body>
+</html>
