@@ -48,7 +48,7 @@ h1 {
 }
 
 h2 {
-	font-size: 2.8em;
+	font-size: 1.8em;
 }
 
 h3 {
@@ -87,7 +87,7 @@ a:hover {
 #header {
 	width: 950px;
 	margin: 0 auto;
-	padding: 0px 0px 0px 30px;
+	padding: 0;
 }
 
 /* Logo */
@@ -197,7 +197,7 @@ a:hover {
 /* Page */
 
 #page {
-	width: 980px;
+	width: 950px;
 	margin: 0 auto;
 	padding: 0px 0px 0px 0px;
     font-size: 14px;
