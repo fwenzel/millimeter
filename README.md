@@ -31,6 +31,13 @@ To install the prerequisites for this tool, run:
 
 [virtualenv]: http://pypi.python.org/pypi/virtualenv
 
+Settings
+--------
+The main settings you want to set are:
+
+    SITE_TITLE = 'localhost:8000'
+    SITE_BASE_URL = 'http://%s/' % SITE_TITLE
+
 License
 -------
 This software is licensed under the [New BSD License][BSD]. For more
