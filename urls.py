@@ -7,7 +7,7 @@ from django.views.generic.simple import direct_to_template
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', direct_to_template, {'template': 'index.html'}, 'index'),
+    url(r'^$', 'shortener.views.index', name='index'),
     (r'^admin/', include(admin.site.urls)),
     (r'^users/', include('users.urls')),
     (r'^(?P<slug>\w+)/$', 'shortener.views.forward'),

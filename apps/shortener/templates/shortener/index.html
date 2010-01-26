@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block contentclass %}full{% endblock %}
+
+{% block content %}
+<h1>Welcome to your friendly URL shortener.</h1>
+<div id="shortener">
+{% if success %}
+    <div class="success">
+        <p>Your URL was successfully shortened!<p>
+        <p>
+            <span class="url long">{{ long_url }}</span><br/>
+            became<br/>
+            <span class="url short">{{ short_url }}</span>
+        <p>
+        <p><a href="{% url index %}">Click here to shorten another URL.</a></p>
+    </div>
+{% else %}
+    <form method="POST" action="">
+        <p>
+            <label for="id_url" id="url-label">Shorten the following URL:</label><br/>
+            {{ form.url }}
+        </p>
+        {{ form.url.errors }}
+        <p>
+            {{ form.slug.errors }}
+            (Optional) short name:<br/>
+            <label for="id_slug" id="slug-label">http://{{ current_site.domain }}/</label>
+            {{ form.slug }}
+        </p>
+        {{ form.slug.errors }}
+        <p class="submit"><button type="submit">Shorten it!</button></p>
+    </form>
+{% endif %}
+</div>
+{% endblock %}
+
