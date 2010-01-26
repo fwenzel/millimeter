@@ -1,13 +1,14 @@
 from django.contrib.auth.models import User
 from django.db import models, IntegrityError
 
+from fields import CharNullField
 from lib.base62 import to62
 
 
 class Link(models.Model):
     """Model representing a single shortened URL"""
     url = models.URLField(max_length=255)
-    slug = models.CharField(
+    slug = CharNullField(
         blank=True,
         db_index=True,
         default=None,
@@ -28,8 +29,8 @@ class Link(models.Model):
 
     def save(self, *args, **kwargs):
         """if the user did not choose a slug, use an auto-generated one"""
+        super(Link, self).save(*args, **kwargs)
         if self.slug:
-            super(Link, self).save(*args, **kwargs)
             return
 
         self.slug = self.autoslug()
