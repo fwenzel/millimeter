@@ -1,23 +1,14 @@
-{% load globals %}
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Welcome{% endblock %} :: {% site_title %}</title>
+    <title>{% block title %}Welcome{% endblock %} :: {{ site.name }}</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="shortcut icon" type="image/png" href="{{ MEDIA_URL}}img/favicon.png"/>
     <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL}}css/style.css" />
     {% block extrahead %}{% endblock %}
 </head>
 <body>
-<div id="wrapper">
-    <div id="header-wrapper">
-    <div id="header">
-        <div id="logo">
-            <h1><a href="{% url index %}">{% site_title %}</a></h1>
-        </div>
-    </div>
-</div><!--/#header-->
+{% include "header.html" %}
 
 <div id="page">
 <div id="page-bgtop">
@@ -40,7 +31,7 @@
 </div><!--/#wrapper-->
 
 <div id="footer">
-    <p>Copyright (c) {% now "Y" %} {% site_title %}. Based on design work by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+    <p>Copyright (c) {% now "Y" %} {{ site.name }}. Based on design work by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
 </div><!--/#footer -->
 
 </body>

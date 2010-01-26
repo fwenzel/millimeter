@@ -33,10 +33,9 @@ To install the prerequisites for this tool, run:
 
 Settings
 --------
-The main settings you want to set are:
-
-    SITE_TITLE = 'localhost:8000'
-    SITE_BASE_URL = 'http://%s/' % SITE_TITLE
+Under ``.../admin/`` you want to edit your "Site" to contain the right URL
+and site name. It will be used to generate correct short URLs and display
+your own site's name everywhere.
 
 License
 -------
