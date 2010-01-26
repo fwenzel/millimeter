@@ -4,25 +4,31 @@ Released for free under a Creative Commons Attribution 2.5 License
 */
 
 @font-face {
-    font-family: 'GentiumBookBasicRegular';
+    font-family: 'GentiumBookBasic';
+    font-style: normal;
+    font-weight: normal;
     src: url('../font/GenBkBasR.eot');
     src: local('Gentium Book Basic Regular'), local('GentiumBookBasic'), url('../font/GenBkBasR.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'GentiumBookBasicItalic';
+    font-family: 'GentiumBookBasic';
+    font-style: italic;
     src: url('../font/GenBkBasI.eot');
     src: local('Gentium Book Basic Italic'), local('GentiumBookBasic-Italic'), url('../font/GenBkBasI.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'GentiumBookBasicBold';
+    font-family: 'GentiumBookBasic';
+    font-weight: bold;
     src: url('../font/GenBkBasB.eot');
     src: local('Gentium Book Basic Bold'), local('GentiumBookBasic-Bold'), url('../font/GenBkBasB.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'GentiumBookBasicBoldItalic';
+    font-family: 'GentiumBookBasic';
+    font-style: italic;
+    font-weight: bold;
     src: url('../font/GenBkBasBI.eot');
     src: local('Gentium Book Basic Bold Italic'), local('GentiumBookBasic-BoldItalic'), url('../font/GenBkBasBI.ttf') format('truetype');
 }
@@ -31,13 +37,13 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #F8F5EC;
-	font-family: GentiumBookBasicRegular, Georgia, "Times New Roman", serif;
+	font-family: GentiumBookBasic, Georgia, "Times New Roman", serif;
 	font-size: 12px;
 	color: #A19D9A;
 }
 
 h1, h2, h3 {
-	margin: 0;
+	margin: 0 0 .3em 0;
 	padding: 0;
 	font-weight: normal;
 	color: #3E3530;
@@ -362,7 +368,6 @@ a:hover {
 	padding-top: 20px;
 	line-height: normal;
 	font-size: 12px;
-	text-transform: small-caps;
 	text-align: center;
 	color: #A0A0A0;
 }
@@ -370,3 +375,13 @@ a:hover {
 #footer a {
 	color: #8A8A8A;
 }
+
+/** specific pages */
+/* user profile */
+#profile .gravatar {
+    float: left;
+}
+#profile p {
+    margin-left: 90px;
+}
+

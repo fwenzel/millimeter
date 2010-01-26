@@ -9,6 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^$', direct_to_template, {'template': 'index.html'}, 'index'),
     (r'^admin/', include(admin.site.urls)),
+    (r'^users/', include('users.urls')),
     (r'^(?P<slug>\w+)/$', 'shortener.views.forward'),
 )
 

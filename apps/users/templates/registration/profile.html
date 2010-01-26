@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>{% block title %}User Profile for {{ user.username }}{% endblock %}</h2>
+
+<div id="profile">
+    <img src="{{ gravatar }}" alt="gravatar" class="gravatar"/>
+    <p>{{ user.get_full_name }}<br/>{{ user.email }}</p>
+    <p><small>
+        <a href="{% url django.contrib.auth.views.password_change %}">Change your password</a>
+        (unsaved changes will be lost)
+    </small></p>
+</div>
+
+{% endblock %}

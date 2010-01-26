@@ -80,6 +80,10 @@ TEMPLATE_DIRS = (
     path('templates')
 )
 
+# user stuff
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -87,6 +91,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
 
     'shortener',
+    'users',
 )
 
 try:
