@@ -3,6 +3,19 @@
     <div id="header">
         <div id="logo">
             <h1><a href="{% url index %}">{{ current_site.name }}</a></h1>
+            <div class="loginlinks">
+                <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url users.views.profile %}">User Profile</a></li>
+                    {% if user.is_staff %}
+                    <li><a href="{% url admin:index %}">Admin</a></li>
+                    {% endif %}
+                    <li><a href="{% url django.contrib.auth.views.logout %}">Log out</a></li>
+                {% else %}
+                    <li><a href="{% url django.contrib.auth.views.login %}">Log in</a></li>
+                {% endif %}
+                </ul>
+            </div>
         </div>
     </div>
 </div><!--/#header-->
