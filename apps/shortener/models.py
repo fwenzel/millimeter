@@ -15,7 +15,8 @@ class Link(models.Model):
         help_text='Custom short URL slug. Uses generated ID if empty.',
         max_length=255,
         null=True,
-        unique=True
+        unique=True,
+        verbose_name='short name',
     )
     user = models.ForeignKey(User)
     visited = models.PositiveIntegerField(default=0, editable=False)
