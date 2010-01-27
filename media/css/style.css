@@ -410,7 +410,7 @@ ul.errorlist {
     color: red;
     font-weight: bold;
     line-height: 120%;
-    list-style: none outside;
+    list-style: none;
 }
 
 /** specific pages */
