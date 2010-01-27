@@ -1,8 +1,9 @@
 from django.contrib.sites.models import Site
 from django.db.models import F
 from django.http import HttpResponsePermanentRedirect
-from django.shortcuts import get_object_or_404, render_to_response
-from django.template import RequestContext
+from django.shortcuts import get_object_or_404
+
+from lib.render import render
 
 from forms import ShortenForm
 from models import Link
@@ -17,8 +18,8 @@ def forward(request, slug):
 
 def index(request):
     if not request.user.is_authenticated():
-        return render_to_response('index.html', context_instance=
-                                  RequestContext(request))
+        return render(request, 'index.html')
+
     data = {}
     if request.method == 'POST':
         form = ShortenForm(request.POST)
@@ -38,6 +39,5 @@ def index(request):
         form = ShortenForm()
     data.update({'form': form})
 
-    return render_to_response('shortener/index.html', data, context_instance =
-                              RequestContext(request))
+    return render(request, 'shortener/index.html', data)
 
