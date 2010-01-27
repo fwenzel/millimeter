@@ -12,7 +12,7 @@
             <span class="url long">{{ long_url }}</span><br/>
             became<br/>
             <span class="url short">{{ short_url }}</span>
-        <p>
+        </p>
         <p><a href="{% url index %}">Click here to shorten another URL.</a></p>
     </div>
 {% else %}
@@ -32,5 +32,9 @@
     </form>
 {% endif %}
 </div>
+{% endblock %}
+
+{% block extrafooter %}
+<script type="text/javascript">index.init();</script>
 {% endblock %}
 
