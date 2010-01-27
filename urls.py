@@ -3,7 +3,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
-from shortener.lib.base62 import CHARS as BASE62_CHARS
+from lib.base62 import CHARS as BASE62_CHARS
 
 
 admin.autodiscover()
