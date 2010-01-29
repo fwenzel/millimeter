@@ -5,6 +5,12 @@ import os
 ROOT = os.path.dirname(os.path.abspath(__file__))
 path = lambda *a: os.path.join(ROOT, *a)
 
+# If you deploy this with fastcgi in a virtual environment, you want to set
+# this variable to the lib/python2.x/site-packages path inside this virtualenv.
+# Yhis way manage.py will import the site-packages before trying to run the
+# app.
+VIRTUALENV = ''
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
