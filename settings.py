@@ -89,7 +89,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
 
-    ".context_processors.current_site",
+    "lib.context_processors.current_site",
 )
 
 # user stuff
