@@ -15,3 +15,7 @@
 
 <p><small><a href="{% url django.contrib.auth.views.password_reset %}">Forgotten your password?</small></p>
 {% endblock %}
+
+{% block extrafooter %}
+<script type="text/javascript">login.init();</script>
+{% endblock %}

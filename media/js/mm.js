@@ -19,3 +19,11 @@ var index = {
         });
     }
 }
+
+var login = {
+    init: function() {
+        $(document).ready(function() {
+            $('#id_username').focus();
+        });
+    }
+}

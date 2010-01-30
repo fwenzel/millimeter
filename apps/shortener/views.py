@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.sites.models import Site
 from django.db.models import F
 from django.http import HttpResponsePermanentRedirect
@@ -16,10 +17,8 @@ def forward(request, slug):
     return HttpResponsePermanentRedirect(link.url)
 
 
+@login_required
 def index(request):
-    if not request.user.is_authenticated():
-        return render(request, 'index.html')
-
     current_site = Site.objects.get_current()
 
     data = {}
