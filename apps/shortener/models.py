@@ -8,7 +8,7 @@ from .fields import CharNullField
 
 class Link(models.Model):
     """Model representing a single shortened URL"""
-    url = models.URLField(max_length=255)
+    url = models.URLField(max_length=255, verify_exists=False)
     slug = CharNullField(
         blank=True,
         db_index=True,

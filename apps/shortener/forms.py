@@ -10,7 +10,7 @@ from models import Link
 class ShortenForm(forms.ModelForm):
     class Meta:
         model = Link
-        exclude = ('user',)
+        fields = ('url', 'slug')
 
     def clean_slug(self):
         """Make sure slugs only contain valid characters"""

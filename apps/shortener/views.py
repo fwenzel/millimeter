@@ -24,8 +24,12 @@ def index(request):
     if request.method == 'POST':
         form = ShortenForm(request.POST)
         if form.is_valid():
-            link = form.save(commit=False)
-            link.user = request.user
+            try:
+                link = Link.objects.filter(url=form.cleaned_data['url'],
+                                           is_autoslug=True)[0]
+            except IndexError:
+                link = form.save()
+            link.users.add(request.user)
             link.save()
 
             # success data
