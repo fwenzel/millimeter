@@ -20,6 +20,8 @@ def index(request):
     if not request.user.is_authenticated():
         return render(request, 'index.html')
 
+    current_site = Site.objects.get_current()
+
     data = {}
     if request.method == 'POST':
         form = ShortenForm(request.POST)
@@ -33,14 +35,21 @@ def index(request):
             link.save()
 
             # success data
-            current_site = Site.objects.get_current()
             data.update({
                 'success': True,
                 'long_url': form.cleaned_data['url'],
                 'short_url': 'http://%s/%s' % (current_site.domain, link.slug)
             })
     else:
-        form = ShortenForm()
+        # allow pre-populating url with GET (from bookmarklet)
+        initial_url = request.GET.get('url', '')
+
+        # no circular bookmarking...
+        if initial_url.startswith('http://%s' % current_site.domain):
+            initial_url = ''
+
+        form = ShortenForm(initial={'url': initial_url})
+
     data.update({'form': form})
 
     return render(request, 'shortener/index.html', data)

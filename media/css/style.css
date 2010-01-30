@@ -303,7 +303,7 @@ table.formtable th {
 	float: right;
 	width: 280px;
 	margin: 0px;
-	padding: 0px 20px 0px 0px;
+	padding: 0;
 	color: #787878;
 }
 
@@ -339,15 +339,12 @@ table.formtable th {
 }
 
 #sidebar h2 {
-	height: 38px;
-	padding-left: 30px;
-	letter-spacing: -.5px;
-	font-size: 1.8em;
+	font-size: 1.5em;
 }
 
 #sidebar p {
-	margin: 0 0px;
-	padding: 0px 30px 20px 30px;
+	margin: 0;
+	padding: 0;
 	text-align: justify;
 }
 
@@ -423,12 +420,16 @@ ul.errorlist {
 }
 
 /* main page */
+#index h1 {
+    text-align: center;
+    margin-bottom: .2em;
+}
 #shortener {
-    width: 500px;
-    border: 1px solid #EBE8DF;
     background: #F1EDE4;
-    padding: 1em;
+    border: 1px solid #EBE8DF;
     margin: 0 auto;
+    padding: 1em;
+    width: 80%;
 }
 #shortener #url-label {
     font-size: 200%;
@@ -462,5 +463,19 @@ ul.errorlist {
 #shortener .success .short {
     font-size: 150%;
     font-weight: bold;
+}
+
+#bookmarklet a {
+    background: #F1EDE4;
+    border: 1px solid #EBE8DF;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: .2em .5em;
+}
+#bookmarklet a:hover {
+    border-color: #3E3530;
+    color: #3E3530;
+    text-decoration: none;
 }
 

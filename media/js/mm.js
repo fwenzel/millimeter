@@ -1,6 +1,9 @@
 var index = {
     init: function() {
         $(document).ready(function() {
+            // disable bookmarklet here
+            $('#bookmarklet a').click(function(){ return false; });
+
             if (!$('#shortener form').length) return;
 
             // focus URL field or error
@@ -8,7 +11,10 @@ var index = {
             if (err.length) {
                 err.prev().find('input').focus().select();
             } else {
-                $('#id_url').focus();
+                if ($('#id_url').val())
+                    $('#id_slug').focus().select();
+                else
+                    $('#id_url').focus().select();
             }
         });
     }
