@@ -32,9 +32,7 @@
 
 </div><!--/#wrapper-->
 
-<div id="footer">
-    <p>Copyright (c) {% now "Y" %} {{ current_site.name }}. Based on design work by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
-</div><!--/#footer -->
+{% include "footer.html" %}
 {% block extrafooter %}{% endblock %}
 </body>
 </html>
