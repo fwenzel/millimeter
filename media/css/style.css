@@ -464,6 +464,9 @@ ul.errorlist {
     font-size: 150%;
     font-weight: bold;
 }
+#clippy {
+    margin-left: .5em;
+}
 
 #bookmarklet a {
     background: #F1EDE4;

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load clippy %}
 
 {% block content %}
 <div id="index">
@@ -6,11 +7,12 @@
     <div id="shortener">
     {% if success %}
         <div class="success">
-            <p>Your URL was successfully shortened!<p>
+            <p>{% block title %}Your URL was successfully shortened!{% endblock %}</p>
             <p>
                 <span class="url long">{{ long_url }}</span><br/>
                 became<br/>
                 <span class="url short">{{ short_url|urlize }}</span>
+                {% clippy short_url "#F1EDE4" %}
             </p>
             <p><a href="{% url index %}">Click here to shorten another URL.</a></p>
         </div>
