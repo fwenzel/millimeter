@@ -3,7 +3,7 @@ from django.conf.urls.defaults import *
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
-from lib.base62 import CHARS as BASE62_CHARS
+from lib import base62
 
 
 admin.autodiscover()
@@ -12,7 +12,8 @@ urlpatterns = patterns('',
     url(r'^$', 'shortener.views.index', name='index'),
     (r'^admin/', include(admin.site.urls)),
     (r'^users/', include('users.urls')),
-    (r'^(?P<slug>[%s]+)/$' % BASE62_CHARS, 'shortener.views.forward'),
+    (r'^(?P<slug>[%s]+)/$' % base62.VALID_SLUG_CHARS,
+     'shortener.views.forward'),
 )
 
 # serve media files in debug mode

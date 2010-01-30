@@ -1,8 +1,11 @@
 """to-and-from base 62 encoding"""
 import string
 
-CHARS = string.ascii_lowercase + string.ascii_uppercase + string.digits
+CHARS = ''.join((string.ascii_lowercase, string.ascii_uppercase,
+                 string.digits))
 BASE = len(CHARS)
+
+VALID_SLUG_CHARS = ''.join((CHARS, '_-'))
 
 def to62(number):
     """encodes a positive integer in base 62."""
