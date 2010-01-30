@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% load clippy %}
 
+{% block title %}{% if not success %}Welcome{% else %}Your URL was successfully shortened!{% endif %}{% endblock %}
+
 {% block content %}
 <div id="index">
     <h1>Welcome to your friendly URL shortener.</h1>
     <div id="shortener">
     {% if success %}
         <div class="success">
-            <p>{% block title %}Your URL was successfully shortened!{% endblock %}</p>
+            <p>Your URL was successfully shortened!</p>
             <p>
                 <span class="url long">{{ long_url }}</span><br/>
                 became<br/>
