@@ -130,15 +130,14 @@ class ViewTest(ShortenerTestCase):
 
 
 class StatsTest(ShortenerTestCase):
-    # FIXME counting clearly works, but this test doesn't :(
-    def notest_count_visits(self):
+    def test_count_visits(self):
         """check visit count"""
         link = Link(url='http://example.com')
         link.save()
 
         visits = random.randint(1, 100)
         for i in range(visits):
-            self.c.get(reverse('index')+link.slug)
+            self.c.get('%s%s/' % (reverse('index'), link.slug))
         link = Link.objects.get(pk=link.pk)
 
         self.assertEqual(visits, link.visited,
