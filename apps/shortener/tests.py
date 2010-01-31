@@ -23,11 +23,6 @@ class ShortenerTestCase(TestCase):
         self.user.save()
         self.c = client.Client()
 
-    def tearDown(self):
-        Link.objects.all().delete()
-        AutoSlug.objects.all().delete()
-        self.user.delete()
-
     def login(self):
         self.c.login(username=self.username, password=self.pw)
 
