@@ -64,13 +64,13 @@ class ViewTest(ShortenerTestCase):
         """test if forwarding works"""
         link = Link(url='http://example.com')
         link.save()
-        response = self.c.get(reverse('index')+link.slug)
+        response = self.c.get('%s%s/' % (reverse('index'), link.slug))
         self.assertEqual(response.status_code, 301,
                          'valid URLs lead to 301 redirect')
 
     def test_forward_invalid(self):
         """accessing an unknown URL slug"""
-        response = self.c.get(reverse('index')+'abcdef')
+        response = self.c.get('%s%s/' % (reverse('index'), 'abcdef'))
         self.assertEqual(response.status_code, 404,
                          'invalid URLs lead to 404')
 

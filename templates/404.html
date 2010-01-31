@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>{% block title %}Not Found{% endblock %}</h2>
+
+<p>I'm sorry, I could not find what you were looking for.</p>
+
+<p>Please start over on the <a href="{% url index %}">front page</a>.</p>
+
+{% endblock %}
