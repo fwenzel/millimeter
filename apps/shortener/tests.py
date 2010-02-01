@@ -42,7 +42,7 @@ class LinkTest(ShortenerTestCase):
         link = Link(url='http://example.com')
         link.save()
         self.assert_(
-            link.slug, 'autoslug must been assigned when slug is undefined')
+            link.slug, 'autoslug must be assigned when slug is undefined')
 
     def test_autoslug_no_reassignment(self):
         """
@@ -64,13 +64,13 @@ class ViewTest(ShortenerTestCase):
         """test if forwarding works"""
         link = Link(url='http://example.com')
         link.save()
-        response = self.c.get('%s%s/' % (reverse('index'), link.slug))
+        response = self.c.get(reverse('shortener.views.forward', args=[link.slug]))
         self.assertEqual(response.status_code, 301,
                          'valid URLs lead to 301 redirect')
 
     def test_forward_invalid(self):
         """accessing an unknown URL slug"""
-        response = self.c.get('%s%s/' % (reverse('index'), 'abcdef'))
+        response = self.c.get(reverse('shortener.views.forward', args=['abcdef']))
         self.assertEqual(response.status_code, 404,
                          'invalid URLs lead to 404')
 
@@ -123,6 +123,7 @@ class ViewTest(ShortenerTestCase):
         myurl = 'http://example.com/'
         self.login()
         self.c.post(reverse('index'), {'url': myurl})
+        self.c.post(reverse('index'), {'url': myurl})
         linkcount = Link.objects.filter(url__exact=myurl).count()
         self.assertEquals(linkcount, 1,
                           'request for the same url witout slug will be '
@@ -137,7 +138,7 @@ class StatsTest(ShortenerTestCase):
 
         visits = random.randint(1, 100)
         for i in range(visits):
-            self.c.get('%s%s/' % (reverse('index'), link.slug))
+            self.c.get(reverse('shortener.views.forward', args=[link.slug]))
         link = Link.objects.get(pk=link.pk)
 
         self.assertEqual(visits, link.visited,
