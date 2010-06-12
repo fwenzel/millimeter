@@ -8,6 +8,9 @@ from lib import base62
 
 admin.autodiscover()
 
+# 404 handler is fine by default
+handler500 = 'shortener.views.server_error' # need MEDIA_URL in 500 error.
+
 urlpatterns = patterns('',
     url(r'^$', 'shortener.views.index', name='index'),
     (r'^admin/', include(admin.site.urls)),

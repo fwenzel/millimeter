@@ -1,8 +1,10 @@
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.sites.models import Site
 from django.db.models import F
-from django.http import HttpResponsePermanentRedirect
+from django.http import HttpResponsePermanentRedirect, HttpResponseServerError
 from django.shortcuts import get_object_or_404
+from django.template import loader, RequestContext
 
 from lib.render import render
 
@@ -19,6 +21,7 @@ def forward(request, slug):
 
 @login_required
 def index(request):
+    blah = 5/0
     current_site = Site.objects.get_current()
 
     data = {}
@@ -53,3 +56,9 @@ def index(request):
 
     return render(request, 'shortener/index.html', data)
 
+
+def server_error(request, template_name='500.html'):
+    """Include MEDIA_URL in 500 error pages."""
+    t = loader.get_template(template_name)
+    c = RequestContext(request)
+    return HttpResponseServerError(t.render(c))

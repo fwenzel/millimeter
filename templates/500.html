@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{% block title %}Internal Server Error{% endblock %}</h2>
+
+<p>
+An unhandled error occurred in the application. The error has been logged
+and an administrator was notified. We apologize for the inconvenience!
+</p>
+
+<p>Please start over on the <a href="{% url index %}">front page</a>.</p>
+{% endblock %}

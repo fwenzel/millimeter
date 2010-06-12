@@ -7,4 +7,3 @@ from django.template import RequestContext
 def render(request, template, context=None):
     return render_to_response(template, context or {}, context_instance=
                               RequestContext(request))
-
