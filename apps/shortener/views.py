@@ -21,7 +21,6 @@ def forward(request, slug):
 
 @login_required
 def index(request):
-    blah = 5/0
     current_site = Site.objects.get_current()
 
     data = {}
